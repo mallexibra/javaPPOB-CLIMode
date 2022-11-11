@@ -33,93 +33,39 @@ public class Main{
             System.out.print("Pilih operator yang anda inginkan: ");
             String operatorPaket = scan.next();
             String operatorPaket2 = operatorPaket.toUpperCase();
+            System.out.print("Masukkan nomor tujuan: ");
+            String numberCustomer = scan.next();
+            while(numberCustomer.length() <= 11){
+                System.out.println("WARNING: Nomor anda masukkan salah!");
+                System.out.print("Silahkan masukkan nomor lagi: ");
+                numberCustomer = scan.next();
+            }
+            System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
+            int bigData = scan.nextInt();
+            if (bigData == 0) {
+                System.out.println("Tidak boleh 0!");
+                System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
+                bigData = scan.nextInt();
+            }
+            int totalGB = 0;
+            System.out.print("Berapa hari (cth: 5): ");
+            int day = scan.nextInt();
             if(operatorPaket2.equals("AXIS")){
-                System.out.print("Masukkan nomor tujuan: ");
-                String numberCustomer = scan.next();
-                while(numberCustomer.length() <= 11){
-                    System.out.println("WARNING: Nomor anda masukkan salah!");
-                    System.out.println("Silahkan ulangi lagi");
-                    numberCustomer = scan.next();
-                }
-                System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                int bigData = scan.nextInt();
-                if (bigData == 0) {
-                    System.out.println("Tidak boleh 0!");
-                    System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                    bigData = scan.nextInt();
-                }
-                System.out.print("Berapa hari (cth: 5): ");
-                int day = scan.nextInt();
-                int totalGB = bigData * 2000;
-                int totalDay = day * totalGB;
-                System.out.println("Nota: Paket Data senilai " + bigData + " GB " + day + " Hari pada nomor " + numberCustomer + " SUKSES TERKIRIM");
-                System.out.println("      Silahkan membayar senilai " + totalDay + " pada Admin");
+                totalGB = bigData * 2000;
             }else if(operatorPaket2.equals("XL")){
-                System.out.print("Masukkan nomor tujuan: ");
-                String numberCustomer = scan.next();
-                while(numberCustomer.length() <= 11){
-                    System.out.println("WARNING: Nomor anda masukkan salah!");
-                    System.out.println("Silahkan ulangi lagi");
-                    numberCustomer = scan.next();
-                }
-                System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                int bigData = scan.nextInt();
-                if (bigData == 0) {
-                    System.out.println("Tidak boleh 0!");
-                    System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                    bigData = scan.nextInt();
-                }
-                System.out.print("Berapa hari (cth: 5): ");
-                int day = scan.nextInt();
-                int totalGB = bigData * 2000;
-                int totalDay = day * totalGB;
-                System.out.println("Nota: Paket Data senilai " + bigData + " GB " + day + " Hari pada nomor " + numberCustomer + " SUKSES TERKIRIM");
-                System.out.println("      Silahkan membayar senilai " + totalDay + " pada Admin");
+                totalGB = bigData * 3000;
             }else if(operatorPaket2.equals("TELKOMSEL")){
-                System.out.print("Masukkan nomor tujuan: ");
-                String numberCustomer = scan.next();
-                while(numberCustomer.length() <= 11){
-                    System.out.println("WARNING: Nomor anda masukkan salah!");
-                    System.out.println("Silahkan ulangi lagi");
-                    numberCustomer = scan.next();
-                }
-                System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                int bigData = scan.nextInt();
-                if (bigData == 0) {
-                    System.out.println("Tidak boleh 0!");
-                    System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                    bigData = scan.nextInt();
-                }
-                System.out.print("Berapa hari (cth: 5): ");
-                int day = scan.nextInt();
-                int totalGB = bigData * 2000;
-                int totalDay = day * totalGB;
-                System.out.println("Nota: Paket Data senilai " + bigData + " GB " + day + " Hari pada nomor " + numberCustomer + " SUKSES TERKIRIM");
-                System.out.println("      Silahkan membayar senilai " + totalDay + " pada Admin");
+                totalGB = bigData * 4000;
             }else if(operatorPaket2.equals("INDOSAT")){
-                System.out.print("Masukkan nomor tujuan: ");
-                String numberCustomer = scan.next();
-                while(numberCustomer.length() <= 11){
-                    System.out.println("WARNING: Nomor anda masukkan salah!");
-                    System.out.println("Silahkan ulangi lagi");
-                    numberCustomer = scan.next();
-                }
-                System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                int bigData = scan.nextInt();
-                if (bigData == 0) {
-                    System.out.println("Tidak boleh 0!");
-                    System.out.print("Berapa GB yang anda butuhkan (cth: 2): ");
-                    bigData = scan.nextInt();
-                }
-                System.out.print("Berapa hari (cth: 5): ");
-                int day = scan.nextInt();
-                int totalGB = bigData * 2000;
-                int totalDay = day * totalGB;
-                System.out.println("Nota: Paket Data senilai " + bigData + " GB " + day + " Hari pada nomor " + numberCustomer + " SUKSES TERKIRIM");
-                System.out.println("      Silahkan membayar senilai " + totalDay + " pada Admin");
+                totalGB = bigData * 5000;
             }else{
                 System.out.println("Masukkan operator yang benar!");
+                System.out.println("Silahkan Ulangi Lagi!");
+                System.exit(1);
             }
+            int totalDay = day * totalGB;
+            System.out.println("Nota: Paket Data senilai " + bigData + " GB " + day + " Hari pada nomor " + numberCustomer + " SUKSES TERKIRIM");
+            System.out.println("      Silahkan membayar senilai " + totalDay + " pada Admin");
         }else if(userChoice == 3){
             System.out.print("Masukkan nomor Token Listrik anda: ");
             int tokenNumber = scan.nextInt();
